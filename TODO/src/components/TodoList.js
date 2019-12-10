@@ -11,28 +11,42 @@ class TodoList extends Component {
 
         this.renderList = this.renderList.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
     }
 
     renderList() {
-        return this.props.list.map((item, index) => {
+        return this.props.items.map((item, index) => {
             return (
                 <div key={index}>
                     {item.title}
+                    <button onClick={()=> this.deleteItem()}>Delete</button>
                 </div>
             );
         });
     }
+
     addItem() {
-        const newList = [...this.props.list, { title: this.state.text }];
+        const newList = [...this.props.items, { title: this.state.text }];
         this.props.createTodo(newList);
     }
+
+
+    deleteItem(index) {
+        this.setState ={
+            text:''
+        }
+    
+    }
+
+        
 
     render() {
         return (
             <div>
                 <textarea value={this.state.text} onChange={(event) => this.setState({ text: event.target.value })}></textarea>
                 <button onClick={() => this.addItem()}>Add </button>
-                <button>Delete</button>
+                <button onClick={() => this.props.createTodo([])}> Reset</button>
+                <button onClick={() => this.deleteItem()}>Delete</button>
                 {this.renderList()}
             </div>
         )
@@ -41,9 +55,10 @@ class TodoList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.todo.items
+        items: state.todo.items
     };
 }
+
 
 export default connect(mapStateToProps, {
     createTodo
