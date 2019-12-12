@@ -19,7 +19,7 @@ class TodoList extends Component {
             return (
                 <div key={index}>
                     {item.title}
-                    <button onClick={()=> this.deleteItem(index)}>Delete</button>
+                    <button onClick={() => this.deleteItem(index)}>Delete</button>
                 </div>
             );
         });
@@ -31,17 +31,17 @@ class TodoList extends Component {
     }
 
 
-    deleteItem(index){
-            const delItems = this.props.items.filter((i,j) => j!==index) 
-            this.props.createTodo(delItems);
-        }
+    deleteItem(index) {
+        const deleteItem = this.props.items.filter((i, j) => j !== index)
+        this.props.createTodo(deleteItem);
+    }
 
     render() {
         return (
             <div>
                 <textarea value={this.state.text} onChange={(event) => this.setState({ text: event.target.value })}></textarea>
-                <button onClick={() => this.addItem()}>Add </button>
-                <button onClick={() => this.props.createTodo([])}> Reset</button>
+                <button onClick={() => this.addItem()}>Add</button>
+                <button onClick={() => this.props.createTodo([])}>Reset</button>
                 {this.renderList()}
             </div>
         )
