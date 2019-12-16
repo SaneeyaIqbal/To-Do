@@ -7,7 +7,7 @@ class TodoList extends Component {
         super(props);
         this.state = {
             text: '',
-            isAuthenticated:false
+            isloggedIn: false
         };
 
         this.renderList = this.renderList.bind(this);
@@ -39,18 +39,21 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {!this.props.isAuthenticated ?(<h1>Login To Add ToDo</h1>):(<div>
-                    <div>
-                            <textarea value={this.state.text} onChange={(event) => this.setState({ text: event.target.value })}></textarea>
-                            <button onClick={() => this.addItem()}>Add</button>
-                            <button onClick={() => this.props.createTodo([])}>Reset</button>
-                            {this.renderList()}
-                        </div>
-                </div>)}
+                {!this.props.isLoggedIn ?
+                    (<h1>Login To Add ToDo</h1>
+                    ) : (
+                        <div>
+                            <div>
+                                <textarea value={this.state.text} onChange={(event) => this.setState({ text: event.target.value })}></textarea>
+                                <button onClick={() => this.addItem()}>Add</button>
+                                <button onClick={() => this.props.createTodo([])}>Reset</button>
+                                {this.renderList()}
+                            </div>
+                        </div>)}
             </div>
-                    
+
         );
-}
+    }
 }
 
 const mapStateToProps = (state) => {
