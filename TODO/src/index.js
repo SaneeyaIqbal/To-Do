@@ -10,6 +10,7 @@ import Login from "./components/Login.js";
 import Home from "./components/Home.js";
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import TodoList from './components/TodoList';
+import Signup from './components/Signup';
 
 
 ReactDOM.render(
@@ -17,8 +18,10 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/signin" component={Signup} />
         <Route path="/login" exact component={Login} />
         <Route exact path="/todo" component={TodoList} />
+
         <App />
       </Switch>
     </Router>
