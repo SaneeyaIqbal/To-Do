@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class AuthenticationAppConfig(AppConfig):
-    name = 'authentication_app'
+class ToDoAppConfig(AppConfig):
+    name = 'To_Do_App'

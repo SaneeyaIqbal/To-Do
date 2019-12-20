@@ -37,17 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'django.contrib.sites',
     'To_Do_App',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
 ]
 SITE_ID = 1
 
 MIDDLEWARE = [
-      'corsheaders.middleware.CorsMiddleware',
-   'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,6 +124,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Static files (CSS, JavaScript, Images)
