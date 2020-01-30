@@ -10,7 +10,7 @@ Installation:
 
 Clone this Repo:
 
-https://github.com/saneeyaiqbal/To-do-redux.git
+https://github.com/SaneeyaIqbal/To-do-redux.git
 
 Get inside the todolist folder:
 
